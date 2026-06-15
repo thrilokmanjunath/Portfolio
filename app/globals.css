@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg-gradient: linear-gradient(180deg,#0f172a 0%, #071024 100%);
+}
+
+html,body,#root{height:100%;}
+
+body{
+  @apply bg-gradient-to-b from-slate-900 via-slate-800 to-black text-slate-100;
+  background: var(--bg-gradient);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{max-width:1100px;margin:0 auto;padding:2rem}
+
+.hero-glass{
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+  border-radius:12px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
