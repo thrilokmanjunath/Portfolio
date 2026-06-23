@@ -5,6 +5,11 @@ import { motion } from 'framer-motion'
 import { Mail, FileText } from 'lucide-react'
 
 export default function Contact(){
+  const emailHref = process.env.NEXT_PUBLIC_EMAIL_LINK ?? 'mailto:thrilokmanjunath@gmail.com'
+  const githubHref = process.env.NEXT_PUBLIC_GITHUB_URL ?? 'https://github.com/thrilokmanjunath'
+  const linkedinHref = process.env.NEXT_PUBLIC_LINKEDIN_URL ?? 'https://linkedin.com/in/thrilokmanjunath'
+  const resumeHref = process.env.NEXT_PUBLIC_RESUME_URL ?? '/Resume.pdf'
+
   return (
     <section className="py-20" id="contact">
       <motion.div
@@ -17,7 +22,7 @@ export default function Contact(){
         <p className="text-slate-400 mb-12 max-w-2xl">Open to opportunities, collaborations, and discussions on AI research and engineering.</p>
         <div className="flex flex-wrap gap-3">
           <a
-            href="mailto:hello@thrillok.com"
+            href={emailHref}
             className="inline-flex items-center gap-2 px-4 py-2 border border-slate-700 hover:border-blue-400 rounded-lg text-slate-300 hover:text-white transition"
           >
             <Mail size={18} />
@@ -25,7 +30,7 @@ export default function Contact(){
           </a>
           
           <a
-            href="https://github.com/thrilokm"
+            href={githubHref}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 border border-slate-700 hover:border-blue-400 rounded-lg text-slate-300 hover:text-white transition"
@@ -37,7 +42,7 @@ export default function Contact(){
           </a>
           
           <a
-            href="https://linkedin.com/in/thrilokm"
+            href={linkedinHref}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 border border-slate-700 hover:border-blue-400 rounded-lg text-slate-300 hover:text-white transition"
@@ -49,7 +54,7 @@ export default function Contact(){
           </a>
           
           <a
-            href="/resume.pdf"
+            href={resumeHref}
             className="inline-flex items-center gap-2 px-4 py-2 border border-slate-700 hover:border-blue-400 rounded-lg text-slate-300 hover:text-white transition"
           >
             <FileText size={18} />
