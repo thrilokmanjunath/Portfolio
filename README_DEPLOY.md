@@ -1,11 +1,13 @@
-Deploy
+#!/bin/bash
 
-Vercel:
-1. Connect repository to Vercel.
-2. Use default Next.js settings.
+echo "🚀 Building for GitHub Pages..."
+npm run build
+npm run export
 
-GitHub Pages (static):
-1. npm run export
-2. Push the `out/` directory to `gh-pages` branch or configure GitHub Pages to serve from `gh-pages`.
+echo "📦 Preparing deployment..."
+mkdir -p dist
+cp -r out/* dist/
 
-Notes: For server-side features use Vercel for best experience.
+echo "✅ Build complete! Contents in ./dist/"
+echo "Push ./dist to gh-pages branch or configure GitHub Pages to use it."
+

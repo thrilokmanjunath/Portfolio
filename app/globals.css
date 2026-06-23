@@ -4,13 +4,14 @@
 
 :root{
   --bg-gradient: linear-gradient(180deg,#0f172a 0%, #071024 100%);
+  --text-foreground: #e6eef8;
 }
 
 html,body,#root{height:100%;}
 
 body{
-  @apply bg-gradient-to-b from-slate-900 via-slate-800 to-black text-slate-100;
   background: var(--bg-gradient);
+  color: var(--text-foreground);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
