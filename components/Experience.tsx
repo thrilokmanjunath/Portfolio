@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const experience = [
   { role: 'Senior AI Research Engineer', company: 'Company', period: '2024 - Present', desc: 'Leading ML infrastructure & generative AI initiatives.' },
@@ -10,17 +11,24 @@ const experience = [
 
 export default function Experience(){
   return (
-    <section className="hero-glass p-8" id="experience">
-      <h2 className="text-3xl font-bold">Experience</h2>
-      <div className="mt-6 space-y-6">
-        {experience.map((exp, i) => (
-          <div key={i} className="border-l-2 border-electric pl-6 pb-6">
-            <h3 className="font-semibold text-lg">{exp.role}</h3>
-            <p className="text-electric text-sm">{exp.company} • {exp.period}</p>
-            <p className="text-slate-300 mt-2">{exp.desc}</p>
-          </div>
-        ))}
-      </div>
+    <section className="py-20" id="experience">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl font-bold mb-12">Experience</h2>
+        <div className="space-y-8">
+          {experience.map((exp, i) => (
+            <div key={i} className="border-l-2 border-blue-500/30 pl-6 pb-6">
+              <h3 className="font-semibold text-lg">{exp.role}</h3>
+              <p className="text-blue-400 text-sm mt-1">{exp.company} • {exp.period}</p>
+              <p className="text-slate-400 mt-3 leading-relaxed">{exp.desc}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   )
 }

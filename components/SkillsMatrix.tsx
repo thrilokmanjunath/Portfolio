@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const skills = [
   { category: 'AI/ML', items: ['PyTorch', 'TensorFlow', 'JAX', 'Hugging Face', 'LangChain', 'RAG'] },
@@ -11,20 +12,27 @@ const skills = [
 
 export default function SkillsMatrix(){
   return (
-    <section className="hero-glass p-8" id="skills">
-      <h2 className="text-3xl font-bold">Skills & Expertise</h2>
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {skills.map((cat) => (
-          <div key={cat.category} className="p-4 bg-slate-900 rounded-lg">
-            <h3 className="font-semibold text-electric">{cat.category}</h3>
-            <div className="mt-3 space-y-2">
-              {cat.items.map((skill) => (
-                <div key={skill} className="text-sm text-slate-300">{skill}</div>
-              ))}
+    <section className="py-20" id="skills">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl font-bold mb-12">Skills & Expertise</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skills.map((cat) => (
+            <div key={cat.category} className="">
+              <h3 className="font-semibold text-lg text-blue-400 mb-4">{cat.category}</h3>
+              <div className="space-y-2">
+                {cat.items.map((skill) => (
+                  <div key={skill} className="text-sm text-slate-300 hover:text-white transition">{skill}</div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   )
 }
